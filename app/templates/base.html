@@ -1,0 +1,17 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - Client</title>
+        {% else %}
+        <title>Client</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>
+            Client:
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('login') }}">Login</a>
+        </div>
+        {% block content %}{% endblock %}
+    </body>
+</html>
