@@ -1,12 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Welcome!</h1>
     {% if current_user.is_anonymous %}
-    <p>Joji</p>
+    <h2>Добро пожаловать!</h2>
     {% else %}
-        {% for post in posts %}
-        <div><p>{{ post.author }} says: <b>{{ post.body }}</b></p></div>
-        {% endfor %}
+    <h2>Добро пожаловать, {{ current_user.username }}!</h2>
+    <h3>Актальные посты</h3>
+    <div>
+    {% for post in posts %}
+    <div>
+        <h4>{{ post.title }}</h4>
+        <div>{{ post.author }} написал(а) в {{ post.created }}</div>
+        <div>
+            {{ post.body }}
+        </div>
+    </div>
+    {% endfor %}
+    </div>
     {% endif %}
 {% endblock %}

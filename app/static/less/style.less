@@ -26,94 +26,97 @@
 @large-4: 50px;
 
 * {
-  box-sizing: border-box;
+    font-family: @font, sans-serif;
+    box-sizing: border-box;
 
-  &:focus {
-    outline: none;
-  }
+    &:focus {
+        outline: none;
+    }
 }
 
 .hint-icon (@top, @right, @width, @height, @image) {
-  position: absolute;
-  z-index: 1;
-  top: @top;
-  right: @right;
-  width: @width;
-  height: @height;
-  background-size: 100% 100%;
-  background-image: url(@image);
-  cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    top: @top;
+    right: @right;
+    width: @width;
+    height: @height;
+    background-size: 100% 100%;
+    background-image: url(@image);
+    cursor: pointer;
 }
 
 .button {
-  border: 0;
-  font-family: @font, sans-serif;
-  font-size: @medium-2;
-  color: @black;
-  text-align: center;
-  background-color: @yellow;
-  border-radius: @border-radius;
-  cursor: pointer;
+    border: 0;
+    font-family: @font, sans-serif;
+    font-size: @medium-2;
+    color: @black;
+    text-align: center;
+    background-color: @yellow;
+    border-radius: @border-radius;
+    cursor: pointer;
 
-  &:hover {
-    background-color: darken(@yellow, 10%);
-  }
+    &:hover {
+        background-color: darken(@yellow, 10%);
+    }
 
-  &:active {
-    background-color: saturate(@yellow, 10%);
-  }
+    &:active {
+        background-color: saturate(@yellow, 10%);
+    }
 }
 
 body {
-  max-width: 1080px;
-  margin: 0 auto;
+    max-width: 1080px;
+    margin: 0 auto;
 }
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 50px;
-  padding: 0 126px;
-  border-bottom: 1px solid @dark-grey; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    padding: 0 126px;
+    border-bottom: 1px solid @dark-grey; 
 
-  &__logo {
-    min-width: 32px;
-    min-height: 32px;
-    margin: auto 0;
-    background-image: url('../img/logo.png');
-    background-size: cover;
-  }
+    &__logo {
+        min-width: 32px;
+        min-height: 32px;
+        margin: auto 0;
+        background-image: url('../img/logo.png');
+        background-size: cover;
+    }
 
-  &__title {
-      padding: 0 16px;
-  }
+    &__title {
+        padding: 0 16px;
+    }
 }
 
 .nav {
-  width: 100%;
-  background-color: @grey;
+    display: flex;
+    width: 100%;
+    background-color: @grey;
 }
 
 .menu {
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-  max-width: 864px;
-  height: 100%;
-  padding: 0 18px;
-  margin: 0 auto;
-  list-style: none;
-
-  &__item {
     display: flex;
-    align-items: center;
-    position: relative;
-    font-family: @font, sans-serif;
-    font-size: @small-1;
-    letter-spacing: 0.9px;
-    color: @white;
-    text-transform: uppercase;
-    cursor: pointer;
-  }
+    align-self: flex-end;
+    align-items: stretch;
+    justify-content: space-between;
+    max-width: 864px;
+    height: 100%;
+    padding: 0 18px;
+    margin: 0 auto;
+    list-style: none;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        position: relative;
+        font-family: @font, sans-serif;
+        font-size: @small-1;
+        letter-spacing: 0.9px;
+        color: @white;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
 }
