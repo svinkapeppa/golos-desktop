@@ -1,6 +1,6 @@
 # Golos Desktop
-[golos.io](golos.io) is a blockchain-based platform for blogging. We present desktop app which can make blogging easier.
-For more detailed information visit [golos.io](golos.io).
+[golos.io](http://golos.io) is a blockchain-based platform for blogging. We present desktop app which can make blogging easier.
+For more detailed information visit [golos.io](http://golos.io).
 
 ## Prerequisite
 * python3.6
