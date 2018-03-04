@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hi, {{ result.data.username }}!</h1>
+    <p>{{ after_login(result.data.username, result.data.password) }}!</p>
+{% endblock %}
