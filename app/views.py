@@ -27,7 +27,11 @@ class Man:
 @app.route('/index')
 @login_required
 def index():
-    return render_template('index.html')
+    users = User.query.all()
+    username = users[0].username
+    password = users[0].password_hash
+    posts = top10(username, password)
+    return render_template('index.html', posts=posts)
 
 
 @app.route('/login', methods=['GET', 'POST'])
