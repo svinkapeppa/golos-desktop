@@ -5,32 +5,20 @@
         {% else %}
         <title>Golos Desktop</title>
         {% endif %}
-        <link rel="stylesheet/less" type="text/css" href="{{ url_for('static', filename='less/style.less') }}">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
     </head>
     <body>
         <header class="header">
-            <div class="header__logo">
-            </div>
-            <div class="header__title">
-                    <a href="{{ url_for('index') }}">ГОЛОС</a>
-            </div>
-            <div class="nav">
-                <ul class="menu">
-                    {% if current_user.is_anonymous %}
-                    <li class="menu__item"><a href="{{ url_for('login') }}">Войти</a></li>
-                    {% else %}
-                    <li class="menu__item"><a href="{{ url_for('logout') }}">Выйти</a></li>
-                    <li class="menu__item"><a href="{{ url_for('transfer') }}">Перевод</a></li>
-                    {% endif %}
-                </ul>
-            </div>
+            <div class="header__logo"></div>
+            <div class="header__title"><a href="{{ url_for('index') }}">ГОЛОС</a></div>
+            {% if current_user.is_anonymous %}
+            <div class="menu__item"><a href="{{ url_for('login') }}">Войти</a></div>
+            {% else %}
+            <div class="menu__item"><a href="{{ url_for('logout') }}">Выйти</a></div>
+            <div class="menu__item"><a href="{{ url_for('transfer') }}">Перевод</a></div>
+            {% endif %}
         </header>
-        {% if not current_user.is_anonymous %}
-        <div class="greetings">
-            Приет, {{ current_user.username }}!
-        </div>
-        {% endif %}
         {% block content %}{% endblock %}
     </body>
 </html>
