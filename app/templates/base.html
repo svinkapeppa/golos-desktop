@@ -10,10 +10,10 @@
     </head>
     <body>
         <header class="header">
-            <div class="header_logo">
-                <a href="{{ url_for('index') }}">
-                    <img src="{{ url_for('static', filename='img/logo.png') }}">
-                </a>
+            <div class="header__logo">
+            </div>
+            <div class="header__title">
+                    <a href="{{ url_for('index') }}">ГОЛОС</a>
             </div>
             <div class="nav">
                 <ul class="menu">
@@ -25,6 +25,11 @@
                 </ul>
             </div>
         </header>
+        {% if not current_user.is_anonymous %}
+        <div class="greetings">
+            Приет, {{ current_user.username }}!
+        </div>
+        {% endif %}
         {% block content %}{% endblock %}
     </body>
 </html>

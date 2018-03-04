@@ -1,6 +1,0 @@
-Flask
-Flask-WTF
-flask-sqlalchemy
-flask-migrate
-piston-cli
-piston-lib

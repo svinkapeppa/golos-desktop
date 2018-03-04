@@ -7,7 +7,8 @@
 @blue: #eef2f7;
 @red: #d0021b;
 @dark-red: #d0011b;
-@grey: #3e4757;
+@grey: #fefefe;
+@dark-grey: #e6e6e6;
 @light-grey: #9299a2;
 @light-grey-2: #dddfe0;
 @gradient-from: #1489e7;
@@ -72,29 +73,25 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 95px;
+  height: 50px;
   padding: 0 126px;
+  border-bottom: 1px solid @dark-grey; 
 
   &__logo {
-    width: 197px;
-    height: 65px;
+    min-width: 32px;
+    min-height: 32px;
     margin: auto 0;
-    background-image: url('../img/logo.svg');
+    background-image: url('../img/logo.png');
+    background-size: cover;
   }
 
-  &__phone {
-    height: 21px;
-    font-family: @font, sans-serif;
-    font-size: @large-1;
-    line-height: 1;
-    text-align: right;
-    color: @black;
+  &__title {
+      padding: 0 16px;
   }
 }
 
 .nav {
   width: 100%;
-  height: 65px;
   background-color: @grey;
 }
 
@@ -118,20 +115,5 @@ body {
     color: @white;
     text-transform: uppercase;
     cursor: pointer;
-
-    &::after {
-      position: absolute;
-      display: flex;
-      width: 0;
-      height: 3px;
-      margin-top: 22px;
-      background-color: @yellow;
-      content: '';
-    }
-
-    &:hover::after {
-      width: 100%;
-      transition: width 0.1s ease-in;
-    }
   }
 }
