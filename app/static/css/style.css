@@ -24,6 +24,7 @@ body {
 }
 
 .header__logo {
+        display: block;
         min-width: 32px;
         min-height: 32px;
         margin: auto 0;

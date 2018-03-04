@@ -10,7 +10,7 @@
     </head>
     <body>
         <header class="header">
-            <div class="header__logo"></div>
+            <a class="header__logo" href="{{ url_for('index') }}"></a>
             <div class="menu__item"><a href="{{ url_for('index') }}">ГОЛОС</a></div>
             {% if current_user.is_anonymous %}
             <div class="menu__item"><a href="{{ url_for('login') }}">Войти</a></div>
