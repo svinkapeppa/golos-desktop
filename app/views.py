@@ -3,7 +3,7 @@ from flask_login import current_user, login_user, logout_user, login_required
 from piston import Steem, account
 
 from app import app, db
-from app.forms import LoginForm, RegistrationForm, TransferForm
+from app.forms import LoginForm, RegistrationForm, TransferForm, PostForm
 from app.models import User
 
 
@@ -78,6 +78,15 @@ def transfer():
     if form.validate_on_submit():
         return redirect(url_for('login'))
     return render_template('transfer.html', title='Transfer', form=form)
+
+
+@app.route('/post')
+@login_required
+def post():
+    form = PostForm()
+    if form.validate_on_submit():
+        return redirect(url_for('login'))
+    return render_template('post.html', title='Post', form=form)
 
 
 def top10(username, password):

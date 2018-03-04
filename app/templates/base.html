@@ -17,6 +17,7 @@
             {% else %}
             <div class="menu__item"><a href="{{ url_for('logout') }}">Выйти</a></div>
             <div class="menu__item"><a href="{{ url_for('transfer') }}">Перевод</a></div>
+            <div class="menu__item"><a href="{{ url_for('post') }}">Предложить пост</a></div>
             {% endif %}
         </header>
         {% block content %}{% endblock %}

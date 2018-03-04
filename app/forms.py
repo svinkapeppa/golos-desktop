@@ -35,4 +35,10 @@ class TransferForm(FlaskForm):
     to = StringField('Username', validators=[DataRequired()])
     amount = FloatField('Amount', validators=[DataRequired()])
     message = StringField('Message')
-    submit = SubmitField('Sign In')
+    submit = SubmitField('Send')
+
+
+class PostForm(FlaskForm):
+    message = StringField('Data', validators=[DataRequired()])
+    tag = StringField('Tag')
+    submit = SubmitField('Send')
