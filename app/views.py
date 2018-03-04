@@ -3,7 +3,7 @@ from flask_login import current_user, login_user, logout_user, login_required
 from piston import Steem, account
 
 from app import app, db
-from app.forms import LoginForm, RegistrationForm
+from app.forms import LoginForm, RegistrationForm, TransferForm
 from app.models import User
 
 
@@ -61,12 +61,19 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 
-def after_login(username, password):
-    steem = Steem(node='wss://ws.testnet3.golos.io', rpcuser=username,
-                  rpcpassword=password)
-    account_info = steem.info()
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
 
-    return 'Your account info{}'.format(account_info)
+
+@app.route('/transfer')
+@login_required
+def transfer():
+    form = TransferForm()
+    if form.validate_on_submit():
+        return redirect(url_for('login'))
+    return render_template('transfer.html', title='Transfer', form=form)
 
 
 def top10(username, password):
@@ -75,11 +82,4 @@ def top10(username, password):
     return posts
 
 
-@app.route('/logout')
-def logout():
-    logout_user()
-    return redirect(url_for('index'))
-
-
-app.jinja_env.globals.update(after_login=after_login)
 app.jinja_env.globals.update(top10=top10)
