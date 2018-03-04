@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400');
+
+@white: #fff;
+@yellow: #ffdd2d;
+@black: #333;
+@light-blue: #74a3c7;
+@blue: #eef2f7;
+@red: #d0021b;
+@dark-red: #d0011b;
+@grey: #3e4757;
+@light-grey: #9299a2;
+@light-grey-2: #dddfe0;
+@gradient-from: #1489e7;
+@gradient-to: #003e82;
+@gradient-mobile-from: #1489e7;
+@gradient-mobile-to: #003e82;
+@border-radius: 6px;
+@font: Roboto;
+@small-1: 13px;
+@medium-1: 16px;
+@medium-2: 17px;
+@large-1: 21px;
+@large-2: 24px;
+@large-3: 30px;
+@large-4: 50px;
+
+* {
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.hint-icon (@top, @right, @width, @height, @image) {
+  position: absolute;
+  z-index: 1;
+  top: @top;
+  right: @right;
+  width: @width;
+  height: @height;
+  background-size: 100% 100%;
+  background-image: url(@image);
+  cursor: pointer;
+}
+
+.button {
+  border: 0;
+  font-family: @font, sans-serif;
+  font-size: @medium-2;
+  color: @black;
+  text-align: center;
+  background-color: @yellow;
+  border-radius: @border-radius;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken(@yellow, 10%);
+  }
+
+  &:active {
+    background-color: saturate(@yellow, 10%);
+  }
+}
+
+body {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 95px;
+  padding: 0 126px;
+
+  &__logo {
+    width: 197px;
+    height: 65px;
+    margin: auto 0;
+    background-image: url('../img/logo.svg');
+  }
+
+  &__phone {
+    height: 21px;
+    font-family: @font, sans-serif;
+    font-size: @large-1;
+    line-height: 1;
+    text-align: right;
+    color: @black;
+  }
+}
+
+.nav {
+  width: 100%;
+  height: 65px;
+  background-color: @grey;
+}
+
+.menu {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  max-width: 864px;
+  height: 100%;
+  padding: 0 18px;
+  margin: 0 auto;
+  list-style: none;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-family: @font, sans-serif;
+    font-size: @small-1;
+    letter-spacing: 0.9px;
+    color: @white;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &::after {
+      position: absolute;
+      display: flex;
+      width: 0;
+      height: 3px;
+      margin-top: 22px;
+      background-color: @yellow;
+      content: '';
+    }
+
+    &:hover::after {
+      width: 100%;
+      transition: width 0.1s ease-in;
+    }
+  }
+}

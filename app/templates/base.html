@@ -1,17 +1,30 @@
 <html>
     <head>
         {% if title %}
-        <title>{{ title }} - Client</title>
+        <title>Golos Desktop — {{ title }}</title>
         {% else %}
-        <title>Client</title>
+        <title>Golos Desktop</title>
         {% endif %}
+        <link rel="stylesheet/less" type="text/css" href="{{ url_for('static', filename='less/style.less') }}">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
     </head>
     <body>
-        <div>
-            Client:
-            <a href="{{ url_for('index') }}">Home</a>
-            <a href="{{ url_for('login') }}">Login</a>
-        </div>
+        <header class="header">
+            <div class="header_logo">
+                <a href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='img/logo.png') }}">
+                </a>
+            </div>
+            <div class="nav">
+                <ul class="menu">
+                    {% if current_user.is_anonymous %}
+                    <li class="menu__item"><a href="{{ url_for('login') }}">Войти</a></li>
+                    {% else %}
+                    <li class="menu__item"><a href="{{ url_for('logout') }}">Выйти</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </header>
         {% block content %}{% endblock %}
     </body>
 </html>
