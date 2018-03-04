@@ -18,9 +18,9 @@
             <div class="nav">
                 <ul class="menu">
                     {% if current_user.is_anonymous %}
-                    <li class="menu__item"><a href="{{ url_for('login') }}">Вход</a></li>
+                    <li class="menu__item"><a href="{{ url_for('login') }}">Войти</a></li>
                     {% else %}
-                    <li class="menu__item"><a href="{{ url_for('logot') }}">Вход</a></li>
+                    <li class="menu__item"><a href="{{ url_for('logot') }}">Выйти</a></li>
                     {% endif %}
                 </ul>
             </div>
