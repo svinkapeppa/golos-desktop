@@ -4,7 +4,7 @@ For more detailed information visit [golos.io](http://golos.io).
 
 ## Prerequisite
 * python3.6
-* electron
+* npm
 
 ## Dependencies
 Run ```pip3 install -r requirments.txt``` in order to install required python packages.
