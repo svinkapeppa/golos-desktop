@@ -8,10 +8,10 @@
     <h3>Актальные посты</h3>
     <div>
     {% for post in posts %}
-    <div>
-        <h4>{{ post.title }}</h4>
-        <div>{{ post.author }} написал(а) в {{ post.created }}</div>
-        <div>
+    <div class="post">
+        <h4 class="post__title">{{ post.title }}</h4>
+        <div class="post__about">{{ post.author }} написал(а) в {{ post.created }}</div>
+        <div class="post_body">
             {{ post.body }}
         </div>
     </div>
