@@ -2,4 +2,11 @@
 
 {% block content %}
     <h1>Welcome!</h1>
+    {% if current_user.is_anonymous %}
+    <p>Joji</p>
+    {% else %}
+        {% for post in posts %}
+        <div><p>{{ post.author }} says: <b>{{ post.body }}</b></p></div>
+        {% endfor %}
+    {% endif %}
 {% endblock %}

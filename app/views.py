@@ -1,10 +1,26 @@
-from flask import render_template, flash, redirect, url_for, request
+from flask import render_template, flash, redirect, url_for
 from flask_login import current_user, login_user, logout_user, login_required
-from piston import Steem
+from piston import Steem, account
 
 from app import app, db
 from app.forms import LoginForm, RegistrationForm
 from app.models import User
+
+
+class Man:
+    def __init__(self, login="vgolos3", password="P5Hu2Vb5N2Gsrp5cWSZp4tHvaJr5cUBtmwEQJs7C6N6oU52E8q7d"):
+        self.steem_instance_ = Steem(node="wss://ws.testnet3.golos.io", rpcuser=login, rpcpassword=password)
+        self.user_ = account.Account(account_name=login, steem_instance=self.steem_instance_)
+
+    def get_posts(self, limit=10,
+                  sort="active",
+                  category=None,
+                  start=None):
+        # list of dicts
+        return self.steem_instance_.get_posts(limit=limit, sort=sort, category=category, start=start)
+
+    def get_user_posts(self, ):
+        pass
 
 
 @app.route('/')
@@ -25,10 +41,8 @@ def login():
             flash('Invalid username or password')
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
-        next_page = request.args.get('next')
-        if not next_page:
-            next_page = url_for('index')
-        return redirect(next_page)
+        posts = top10(form.username.data, form.password.data)
+        return render_template('index.html', posts=posts)
     return render_template('login.html', title='Sign In', form=form)
 
 
@@ -55,6 +69,12 @@ def after_login(username, password):
     return 'Your account info{}'.format(account_info)
 
 
+def top10(username, password):
+    user = Man(username, password)
+    posts = user.get_posts(sort="active")
+    return posts
+
+
 @app.route('/logout')
 def logout():
     logout_user()
@@ -62,3 +82,4 @@ def logout():
 
 
 app.jinja_env.globals.update(after_login=after_login)
+app.jinja_env.globals.update(top10=top10)
