@@ -5,6 +5,8 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const path = require('path');
 
+require('electron-reload')(__dirname);
+
 // Keep a global reference of the mainWindowdow object, if you don't, the mainWindowdow will
 // be closed automatically when the JavaScript object is garbage collected.
 var mainWindow = null;
@@ -36,7 +38,7 @@ app.on('ready', function() {
     mainWindow.loadURL('http://localhost:5000/');
   
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
   // Emitted when the mainWindow is closed.
   mainWindow.on('closed', function() {
