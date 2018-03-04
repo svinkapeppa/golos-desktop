@@ -11,7 +11,7 @@
     <body>
         <header class="header">
             <div class="header__logo"></div>
-            <div class="header__title"><a href="{{ url_for('index') }}">ГОЛОС</a></div>
+            <div class="menu__item"><a href="{{ url_for('index') }}">ГОЛОС</a></div>
             {% if current_user.is_anonymous %}
             <div class="menu__item"><a href="{{ url_for('login') }}">Войти</a></div>
             {% else %}
