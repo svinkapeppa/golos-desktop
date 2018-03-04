@@ -11,5 +11,8 @@
   "dependencies": {
     "electron": "^1.7.9",
     "electron-reload": "^1.2.2"
+  },
+  "devDependencies": {
+    "electron-builder": "^20.2.0"
   }
 }
